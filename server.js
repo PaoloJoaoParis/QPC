@@ -1,5 +1,5 @@
 import sequelize from "./config/database.js";
-import Player from "./models/players.model.js"
+import Player from "./models/player.model.js"
 
 
 await sequelize.sync({ force: true });
