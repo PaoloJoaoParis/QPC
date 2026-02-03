@@ -1,26 +1,24 @@
+import { DataTypes } from "sequelize";
 import sequelize from "../config/database.js";
-import { DataTypes, where } from "sequelize";
 
 const model = {
-  alias: {
-    type: DataTypes.STRING,
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
+  pseudo: {
+    type: DataTypes.STRING(50),
     allowNull: false,
     unique: true,
   },
-  identity: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  powerDate: {
-    type: DataTypes.DATEONLY,
-    allowNull: false,
-  },
-  id: {
+  age: {
     type: DataTypes.INTEGER,
-    // type: DataTypes.UUID,
-    // defaultValue: DataTypes.UUIDV4,
-    autoIncrement: true,
-    primaryKey: true,
+    allowNull: false,
+  },
+  created_at: {
+    type: DataTypes.DATE,
+    allowNull: false,
   },
   isDeleted: {
     type: DataTypes.BOOLEAN,
@@ -28,16 +26,14 @@ const model = {
   },
 };
 
-const Player = sequelize.define("Hero", model, {
+const Player = sequelize.define("Player", model, {
+  tableName: "players",
+  timestamps: false,
   defaultScope: {
-    where: {
-      isDeleted: false,
-    },
+    where: { isDeleted: false },
   },
   scopes: {
-    withDeleted: {
-      where: {},
-    },
+    withDeleted: { where: {} },
   },
 });
 
