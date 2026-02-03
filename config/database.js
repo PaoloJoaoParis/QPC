@@ -1,15 +1,19 @@
-import { Sequelize } from "sequelize";
+import dotenv from 'dotenv';
+import { Sequelize } from 'sequelize';
+
+dotenv.config();
+console.log('ENV:', process.env.DB_HOST, process.env.DB_USER, process.env.DB_PASS, process.env.DB_NAME);
 
 const sequelize = new Sequelize(
   process.env.DB_NAME,
   process.env.DB_USER,
-  process.env.DB_PASSWORD,
+  process.env.DB_PASS,
   {
     host: process.env.DB_HOST,
-    port: process.env.DB_PORT || 5432,
-    dialect: "postgres",
-    logging: false, // passe à true si tu veux voir les requêtes SQL
-  },
+    port: process.env.DB_PORT,
+    dialect: 'postgres',
+    logging: false,
+  }
 );
 
 export default sequelize;
