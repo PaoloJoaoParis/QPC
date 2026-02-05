@@ -15,7 +15,7 @@ const model = {
 
 const Player = sequelize.define("Player", model, {
   tableName: "players",
-  timestamps: false,
+  timestamps: true,
 });
 
 export default Player;
