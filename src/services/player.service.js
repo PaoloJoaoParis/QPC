@@ -23,13 +23,14 @@ export async function validatePlayer({pseudo,age}, excludeId = null){
             throw new ErrorManager.ConflictError(`This pseudo already exist : ${pseudo}`);
         }
     }
-    if (age !== undefined && !age) {
+    if (!age) {
         throw new ErrorManager.ValidatorError(`The age must be define`);
     }
     if (!excludeId) {
         if (!pseudo) throw new ErrorManager.ValidatorError(`The pseudo must contain at least 3 caracter`);
         if (!age) throw new ErrorManager.ValidatorError(`The age must be define`);
     }
+    return true
 }
 
 export async function createPlayer ({pseudo,age}){
