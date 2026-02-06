@@ -1,4 +1,3 @@
-import { DifficultyRepository } from "../repositories/index.js";
 import { DifficultyService } from "../services";
 
 export async function getAllDifficulty (req,res,next){

@@ -1,7 +1,7 @@
-import sequelize from "./config/database.js";
+import sequelize from "./src/config/database.js";
 import express from "express"
-import { PlayerRoute, ApiRoute} from "./routes/index.js";
-import {errorHandler} from "./middlewares/errorHandler.js"
+import { PlayerRoute, ApiRoute} from "./src/routes/index.js";
+import {errorHandler} from "./src/middlewares/errorHandler.js"
 
 const app = express()
 const port = 3000
